@@ -1,6 +1,6 @@
 {
   "name": "@chakrahq/strapi-provider-upload-aws-s3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AWS S3 provider for strapi upload, with additional optional features over the official AWS S3 provider",
   "keywords": [
     "upload",
