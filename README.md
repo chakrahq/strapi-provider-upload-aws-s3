@@ -1,5 +1,4 @@
-Small modification to [strapi-provider-upload-aws-s3](https://www.npmjs.com/package/strapi-provider-upload-aws-s3) to support an optional baseUrl configuration.
-If `baseUrl` is not specified, it works the same as the official aws-s3 plugin.
+Small enhancements to [strapi-provider-upload-aws-s3](https://www.npmjs.com/package/strapi-provider-upload-aws-s3) to support some optional configurations.
 
 Original source is [here](https://github.com/strapi/strapi/tree/master/packages/strapi-provider-upload-aws-s3).
 
@@ -31,13 +30,16 @@ module.exports = ({ env }) => {
       params: {
         Bucket: env('AWS_S3_BUCKET'),
       },
-      baseUrl: env('AWS_S3_CDN')
+      baseUrl: env('AWS_S3_CDN'),
+      prefix: 'images/',
+      ACL: 'public-read',
     },
   },
   //...
 };
 ```
 
-Note:
-`baseUrl` param should be a full URL without a trailing slash.
-Example: `https://cdn.example.com`
+Notes:
+- `baseUrl` - should be a full URL without a trailing slash. Example: `https://cdn.example.com`
+- `prefix` - should have a trailing slash if it's required. Example: `images/`
+- `ACL` - should be from the list of canned ACLs as described [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl). Example: `private`
