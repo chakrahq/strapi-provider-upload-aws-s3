@@ -81,6 +81,8 @@ ssl
 .gitattributes
 .idea
 nbproject
+*.bak
+*.orig
 
 
 ############################
